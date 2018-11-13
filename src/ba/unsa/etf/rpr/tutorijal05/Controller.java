@@ -133,18 +133,26 @@ public class Controller {
         }else if(actionEvent.getSource() == equalsBtn){
             Double storage2 = Double.parseDouble(displayValue.get());
             Double result = 0d;
-            if(operation == 1)
-                result = storage + storage2;
-            else if(operation == 2)
-                result = storage - storage2;
-            else if(operation == 3)
-                result = storage * storage2;
-            else if(operation == 4)
-                result = storage / storage2;
-            else if(operation == 5)
-                result = storage%storage2;
-            else if(operation == 6)
-                result = storage%storage2;
+            switch (operation) {
+                case 1:
+                    result = storage + storage2;
+                    break;
+                case 2:
+                    result = storage - storage2;
+                    break;
+                case 3:
+                    result = storage * storage2;
+                    break;
+                case 4:
+                    result = storage / storage2;
+                    break;
+                case 5:
+                    result = storage % storage2;
+                    break;
+                case 6:
+                    result = storage % storage2;
+                    break;
+            }
             displayValue.set(String.valueOf(result));
         }
     }
