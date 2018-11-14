@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.tutorijal05;
 
 
+import com.sun.jdi.IntegerValue;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -125,13 +126,15 @@ public class Controller {
             displayValue.set("");
         }else if(actionEvent.getSource() == moduleBtn){
             storage = Double.parseDouble(displayValue.get());
-            operation = 6;
+            operation = 5;
             displayValue.set("");
         }else if(actionEvent.getSource() == dotBtn){
             if(!displayValue.get().contains("."))
                 displayValue.set(displayValue.get() + ".");
         }else if(actionEvent.getSource() == equalsBtn){
             Double storage2 = Double.parseDouble(displayValue.get());
+            boolean Nula = false;
+            String greska = "Error!";
             Double result = 0d;
             switch (operation) {
                 case 1:
@@ -144,15 +147,16 @@ public class Controller {
                     result = storage * storage2;
                     break;
                 case 4:
+                    if(storage2 == 0){ Nula = true; break;}
+                    else
                     result = storage / storage2;
                     break;
                 case 5:
                     result = storage % storage2;
                     break;
-                case 6:
-                    result = storage % storage2;
-                    break;
             }
+            if(Nula) displayValue.set(greska);
+            else
             displayValue.set(String.valueOf(result));
         }
     }

@@ -106,4 +106,52 @@ class MainTest {
         robot.clickOn("#btn0");
         assertEquals("10", display.getText());
     }
+
+    //Novi test
+    @Test
+    public void multiplyBtnTest(FxRobot robot){
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn1");
+        robot.clickOn("#btn2");
+        robot.clickOn("#multiplyBtn");
+        robot.clickOn("#btn1");
+        robot.clickOn("#btn2");
+        robot.clickOn("#equalsBtn");
+        assertEquals("144.0", display.getText());
+    }
+
+    //Novi test
+    @Test
+    public void multiplyByZero(FxRobot robot){
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn2");
+        robot.clickOn("#btn5");
+        robot.clickOn("#multiplyBtn");
+        robot.clickOn("#btn0");
+        robot.clickOn("#equalsBtn");
+        assertEquals("0.0", display.getText());
+    }
+
+    //Novi test
+    @Test
+    public void divideBtnTest(FxRobot robot){
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn2");
+        robot.clickOn("#btn5");
+        robot.clickOn("#divideBtn");
+        robot.clickOn("#btn5");
+        robot.clickOn("#equalsBtn");
+        assertEquals("5.0", display.getText());
+    }
+
+    //Novi test
+    @Test
+    public void divideByZero(FxRobot robot){
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn5");
+        robot.clickOn("#divideBtn");
+        robot.clickOn("#btn0");
+        robot.clickOn("#equalsBtn");
+        assertEquals("Error!", display.getText());
+    }
 }
