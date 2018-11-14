@@ -166,4 +166,16 @@ class MainTest {
         robot.clickOn("#equalsBtn");
         assertEquals("-7.0", display.getText());
     }
+
+    //Novi test
+    @Test
+    public void moduloBtnTest(FxRobot robot){
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn1");
+        robot.clickOn("#btn5");
+        robot.clickOn("#moduleBtn");
+        robot.clickOn("#btn2");
+        robot.clickOn("#equalsBtn");
+        assertEquals("1.0", display.getText());
+    }
 }
