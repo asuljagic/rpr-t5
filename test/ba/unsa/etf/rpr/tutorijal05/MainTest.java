@@ -154,4 +154,16 @@ class MainTest {
         robot.clickOn("#equalsBtn");
         assertEquals("Error!", display.getText());
     }
+
+    //Novi test
+    @Test
+    public void negativeNumbers(FxRobot robot){
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn3");
+        robot.clickOn(("#minusBtn"));
+        robot.clickOn("#btn1");
+        robot.clickOn("#btn0");
+        robot.clickOn("#equalsBtn");
+        assertEquals("-7.0", display.getText());
+    }
 }
